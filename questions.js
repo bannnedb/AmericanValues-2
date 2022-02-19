@@ -517,7 +517,7 @@ questions = [
        }
     },
     {
-        "question": "Google and Amazon monopolies and should be broken up.",
+        "question": "Google and Amazon monopolies are and should be broken up.",
         "effect": {
             "culture": 0,
             "solutions": 10,
