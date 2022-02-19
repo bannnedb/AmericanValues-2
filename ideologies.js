@@ -187,17 +187,6 @@ ideologies = [
         }
     },
     {
-        "name": "Paleoconservative",
-        "stats": {
-            "culture": 25,
-            "solutions": 30,
-            "foreign": 10,
-            "social": 25,
-            "power": 35,
-            "states": 70
-        }
-    },
-    {
         "name": "Stalinist",
         "stats": {
             "culture": 50,
