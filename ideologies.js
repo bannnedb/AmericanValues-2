@@ -17,7 +17,7 @@ ideologies = [
             "solutions": 30,
             "foreign": 20,
             "social": 90,
-            "power": 80,
+            "power": 20,
             "states": 60
         }
     },
