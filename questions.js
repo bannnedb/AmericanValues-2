@@ -891,7 +891,7 @@ questions = [
         }
     },
     {
-        "question": "Eminent domain should be universally fobidden.",
+        "question": "The seizure of property is always immoral.",
         "effect": {
             "culture": 0,
             "solutions": -10,
