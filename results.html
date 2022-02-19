@@ -1,0 +1,268 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <title>AmericanValues 2 Results</title>
+    <link rel="icon" type="x-icon" href="icon.png">
+    <link rel="shortcut icon" type="x-icon" href="icon.png">
+    <meta charset="utf-8">
+    <script>
+        version = "First Version" //Remember to update this before making changes to the test itself!
+</script>
+</head>
+<script type="application/javascript"
+        src="ideologies.js">
+</script>
+
+<body>
+<h1>AmericanValues 2</h1>
+<hr>
+
+<h1>Results</h1>
+
+<h2>Culture Axis: <span class="weight-300" id="culture-label"></span></h2>
+<div class="axis">
+    <img id="img-liberalism" src="value_images/liberalism.png" height="128pt"/>
+    <div class="bar liberalism" id="bar-liberalism"><div class="text-wrapper" id="liberalism"></div></div>
+    <div class="bar conservatism" id="bar-conservatism"><div class="text-wrapper" id="conservatism"></div></div>
+    <img id="img-conservatism" src="value_images/conservatism.png" height="128pt"/>
+</div>
+<h2>Community Axis: <span class="weight-300" id="solutions-label"></span></h2>
+<div class="axis">
+    <img id="img-cooperation" src="value_images/cooperation.png" height="128pt"/>
+    <div class="bar cooperation" id="bar-cooperation"><div class="text-wrapper" id="cooperation"></div></div>
+    <div class="bar individualism" id="bar-individualism"><div class="text-wrapper" id="individualism"></div></div>
+    <img id="img-individualism" src="value_images/individualism.png" height="128pt"/>
+</div>
+<h2>Foreign Axis: <span class="weight-300" id="foreign-label"></span></h2>
+<div class="axis">
+    <img id="img-globalism" src="value_images/globalism.png" height="128pt"/>
+    <div class="bar globalism" id="bar-globalism"><div class="text-wrapper" id="globalism"></div></div>
+    <div class="bar america_first" id="bar-america_first"><div class="text-wrapper" id="america_first"></div></div>
+    <img id="img-america_first" src="value_images/america_first.png" height="128pt"/>
+</div>
+<h2>Governmental Axis: <span class="weight-300" id="social-label"></span></h2>
+<div class="axis">
+    <img id="img-freedom" src="value_images/freedom.png" height="128pt"/>
+    <div class="bar freedom" id="bar-freedom"><div class="text-wrapper" id="freedom"></div></div>
+    <div class="bar security" id="bar-security"><div class="text-wrapper" id="security"></div></div>
+    <img id="img-security" src="value_images/security.png" height="128pt"/>
+</div>
+<h2>Judicial Axis: <span class="weight-300" id="power-label"></span></h2>
+<div class="axis">
+    <img id="img-authority" src="value_images/authority.png" height="128pt"/>
+    <div class="bar authority" id="bar-authority"><div class="text-wrapper" id="authority"></div></div>
+    <div class="bar constitution" id="bar-constitution"><div class="text-wrapper" id="constitution"></div></div>
+    <img id="img-constitution" src="value_images/constitution.png" height="128pt"/>
+</div>
+<h2>Federal Axis: <span class="weight-300" id="states-label"></span></h2>
+<div class="axis">
+    <img id="img-centralism" src="value_images/centralism.png" height="128pt"/>
+    <div class="bar centralism" id="bar-centralism"><div class="text-wrapper" id="centralism"></div></div>
+    <div class="bar states_rights" id="bar-states_rights"><div class="text-wrapper" id="states_rights"></div></div>
+    <img id="img-states_rights" src="value_images/states_rights.png" height="128pt"/>
+</div>
+<h2>Closest Match: <span class="weight-300" id="ideology-label"></span></h2>
+<hr/>
+<img src="" id="banner">
+<button class="button" onclick="location.href='index.html';" style="background-color: #2196f3;">Back</button> <br>
+<script>
+    function getQueryVariable(variable)
+    {
+           var query = window.location.search.substring(1)
+           var vars = query.split("&")
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=")
+                   if(pair[0] == variable) {return pair[1]}
+           }
+           return(NaN);
+    }
+
+    function setBarValue(name, value) {
+        innerel = document.getElementById(name)
+        outerel = document.getElementById("bar-" + name)
+        outerel.style.width = (value + "%")
+        innerel.innerHTML = (value + "%")
+        if (innerel.offsetWidth + 20 > outerel.offsetWidth) {
+            innerel.style.visibility = "hidden"
+        }
+    }
+
+    cultureArray = ["Revolutionary Progressive","Progressive","Liberal","Moderate","Conservative","Traditionalist","Reactionary"]
+    solutionsArray = ["Communist","Socialist","Collectivist","Balanced","Individualist","Capitalist","Lassiez-Faire Capitalist"]
+    foreignArray = ["World Federalist","Globalist","Internationalist","Moderate","Patriotic","Nationalist","Chauvinist"]
+    socialArray = ["Anarchist","Minarchist","Libertarian","Moderate","Statist","Authoritarian","Totalitarian"]
+    powerArray = ["Extreme Doctrinal","Very Doctrinal","Doctrinal","Balanced","Textualist","Constitutionalist","Extreme Textualist"]
+    statesArray = ["Unitarian","Centralist","Unionist","Balanced","Federalist","Confederalist","Secessionist"]
+
+    function setLabel(val,ary) {
+        if (val > 100) { return "" } else
+        if (val > 90) { return ary[0] } else
+        if (val > 75) { return ary[1] } else
+        if (val > 60) { return ary[2] } else
+        if (val >= 40) { return ary[3] } else
+        if (val >= 25) { return ary[4] } else
+        if (val >= 10) { return ary[5] } else
+        if (val >= 0) { return ary[6] } else
+        	{return ""}
+    }
+
+    liberalism = getQueryVariable("c")
+    cooperation = getQueryVariable("n")
+    globalism = getQueryVariable("f")
+    freedom = getQueryVariable("s")
+    authority = getQueryVariable("p")
+    centralism = getQueryVariable("a")
+    conservatism = (100 - liberalism).toFixed(1)
+    individualism = (100 - cooperation).toFixed(1)
+    america_first = (100 - globalism).toFixed(1)
+    security = (100 - freedom).toFixed(1)
+    constitution = (100 - authority).toFixed(1)
+    states_rights = (100 - centralism).toFixed(1)
+
+    setBarValue("liberalism", liberalism)
+    setBarValue("conservatism", conservatism)
+    setBarValue("cooperation", cooperation)
+    setBarValue("individualism", individualism)
+    setBarValue("globalism", globalism)
+    setBarValue("america_first", america_first)
+    setBarValue("freedom", freedom)
+    setBarValue("security", security)
+    setBarValue("authority", authority)
+    setBarValue("constitution", constitution)
+    setBarValue("centralism", centralism)
+    setBarValue("states_rights", states_rights)
+
+    document.getElementById("culture-label").innerHTML = setLabel(liberalism, cultureArray)
+    document.getElementById("solutions-label").innerHTML = setLabel(cooperation, solutionsArray)
+    document.getElementById("foreign-label").innerHTML = setLabel(globalism, foreignArray)
+    document.getElementById("social-label").innerHTML = setLabel(freedom, socialArray)
+    document.getElementById("power-label").innerHTML = setLabel(authority, powerArray)
+    document.getElementById("states-label").innerHTML = setLabel(centralism, statesArray)
+
+    ideology = ""
+    ideodist = Infinity
+    for (var i = 0; i < ideologies.length; i++) {
+        dist = 0
+        dist += Math.pow(Math.abs(ideologies[i].stats.culture - liberalism), 2)
+        dist += Math.pow(Math.abs(ideologies[i].stats.solutions - cooperation), 2)
+        dist += Math.pow(Math.abs(ideologies[i].stats.foreign - globalism), 2)
+        dist += Math.pow(Math.abs(ideologies[i].stats.social - freedom), 2)
+        dist += Math.pow(Math.abs(ideologies[i].stats.power - authority), 1.1)
+        dist += Math.pow(Math.abs(ideologies[i].stats.states - centralism), 1.2)
+        if (dist < ideodist) {
+            ideology = ideologies[i].name
+            ideodist = dist
+        }
+    }
+    document.getElementById("ideology-label").innerHTML = ideology
+
+    function createImage(src, x, y, w, h) {
+        img = new Image ()
+        img.src = src
+        img.onLoad = function() {
+            ctx.drawImage(img, x, y, w, h)
+        }
+    }
+
+    window.onload = function() {
+        var c = document.createElement("canvas")
+        var ctx = c.getContext("2d")
+        c.width = 800;
+        c.height = 890;
+        ctx.fillStyle = "#EEEEEE"
+        ctx.fillRect(0,0,800,890);
+
+        img = document.getElementById("img-liberalism")
+        ctx.drawImage(img, 20, 170, 100, 100);
+        img = document.getElementById("img-conservatism")
+        ctx.drawImage(img, 680, 170, 100, 100)
+        img = document.getElementById("img-cooperation")
+        ctx.drawImage(img, 20, 290, 100, 100)
+        img = document.getElementById("img-individualism")
+        ctx.drawImage(img, 680, 290, 100, 100)
+        img = document.getElementById("img-globalism")
+        ctx.drawImage(img, 20, 410, 100, 100)
+        img = document.getElementById("img-america_first")
+        ctx.drawImage(img, 680, 410, 100, 100)
+        img = document.getElementById("img-freedom")
+        ctx.drawImage(img, 20, 530, 100, 100)
+        img = document.getElementById("img-security")
+        ctx.drawImage(img, 680, 530, 100, 100)
+        img = document.getElementById("img-authority")
+        ctx.drawImage(img, 20, 650, 100, 100)
+        img = document.getElementById("img-constitution")
+        ctx.drawImage(img, 680, 650, 100, 100)
+        img = document.getElementById("img-centralism")
+        ctx.drawImage(img, 20, 770, 100, 100)
+        img = document.getElementById("img-states_rights")
+        ctx.drawImage(img, 680, 770, 100, 100)
+
+        ctx.fillStyle="#222222"
+        ctx.fillRect(115, 180, 565, 80)
+        ctx.fillRect(115, 300, 565, 80)
+        ctx.fillRect(115, 420, 565, 80)
+        ctx.fillRect(115, 540, 565, 80)
+        ctx.fillRect(115, 660, 565, 80)
+        ctx.fillRect(115, 780, 565, 80)
+        ctx.fillStyle="#0288d1ff"
+        ctx.fillRect(120, 184, 5.6*liberalism-2, 72)
+        ctx.fillStyle="#f44336ff"
+        ctx.fillRect(682-5.6*conservatism, 184, 5.6*conservatism-2, 72)
+        ctx.fillStyle="#d15585ff"
+        ctx.fillRect(120, 304, 5.6*cooperation-2, 72)
+        ctx.fillStyle="#fbc02dff"
+        ctx.fillRect(682-5.6*individualism, 304, 5.6*individualism-2, 72)
+        ctx.fillStyle="#7cd1ffff"
+        ctx.fillRect(120, 424, 5.6*globalism-2, 72)
+        ctx.fillStyle="#f57c00ff"
+        ctx.fillRect(682-5.6*america_first, 424, 5.6*america_first-2, 72)
+        ctx.fillStyle="#00796bff"
+        ctx.fillRect(120, 544, 5.6*freedom-2, 72)
+        ctx.fillStyle="#303f9fff"
+        ctx.fillRect(682-5.6*security, 544, 5.6*security-2, 72)
+        ctx.fillStyle="#7b1fa2ff"
+        ctx.fillRect(120, 664, 5.6*authority-2, 72)
+        ctx.fillStyle="#689f38ff"
+        ctx.fillRect(682-5.6*constitution, 664, 5.6*constitution-2, 72)
+        ctx.fillStyle="#a6a6a6ff"
+        ctx.fillRect(120, 784, 5.6*centralism-2, 72)
+        ctx.fillStyle="#30cc86ff"
+        ctx.fillRect(682-5.6*states_rights, 784, 5.6*states_rights-2, 72)
+        ctx.fillStyle="#222222"
+        ctx.font="700 40px Montserrat"
+        ctx.textAlign="left"
+        ctx.fillText("AmericanValues 2", 20, 90)
+        ctx.font="50px Montserrat"
+        ctx.fillText(ideology, 20, 140)
+
+        ctx.textAlign="left"
+        if (liberalism > 30) {ctx.fillText(liberalism + "%", 130, 237.5)}
+        if (cooperation > 30) {ctx.fillText(cooperation + "%", 130, 357.5)}
+        if (globalism > 30) {ctx.fillText(globalism + "%", 130, 477.5)}
+        if (freedom > 30) {ctx.fillText(freedom + "%", 130, 597.5)}
+        if (authority > 30) {ctx.fillText(authority + "%", 130, 717.5)}
+        if (centralism > 30) {ctx.fillText(centralism + "%", 130, 837.5)}
+        ctx.textAlign="right"
+        if (conservatism > 30) {ctx.fillText(conservatism + "%", c.width - 130, 237.5)}
+        if (individualism > 30) {ctx.fillText(individualism + "%", c.width - 130, 357.5)}
+        if (america_first > 30) {ctx.fillText(america_first + "%", c.width - 130, 477.5)}
+        if (security > 30) {ctx.fillText(security + "%", c.width - 130, 597.5)}
+        if (constitution > 30) {ctx.fillText(constitution + "%", c.width - 130, 717.5)}
+        if (states_rights > 30) {ctx.fillText(states_rights + "%", c.width - 130, 837.5)}
+
+        ctx.font="300 15px Montserrat"
+        ctx.fillText("bannnedb.github.io/American-Values", 780, 60)
+        ctx.font="300 30px Montserrat"
+		ctx.fillText(version, 780, 90)
+        ctx.textAlign="center"
+        ctx.fillText("Culture Axis: " + document.getElementById("culture-label").innerHTML, 400, 175)
+        ctx.fillText("Solutions Axis: " + document.getElementById("solutions-label").innerHTML, 400, 295)
+        ctx.fillText("Foreign Axis: " + document.getElementById("foreign-label").innerHTML, 400, 416)
+        ctx.fillText("Social Axis: " + document.getElementById("social-label").innerHTML, 400, 536)
+        ctx.fillText("Power Axis: " + document.getElementById("power-label").innerHTML, 400, 656)
+        ctx.fillText("States Axis: " + document.getElementById("states-label").innerHTML, 400, 776)
+
+        document.getElementById("banner").src = c.toDataURL();
+    }
+    </script>
+</body>

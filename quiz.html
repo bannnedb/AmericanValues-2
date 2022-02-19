@@ -1,0 +1,97 @@
+<head>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+<link href='style.css' rel='stylesheet' type='text/css'>
+<title>AmericanValues 2 Quiz</title>
+<link rel="icon" type="x-icon" href="icon.png">
+<link rel="shortcut icon" type="x-icon" href="icon.png">
+<meta charset="utf-8">
+</head>
+<body>
+<script type="application/javascript" src="questions.js">
+</script>
+<h1>AmericanValues 2</h1>
+<hr>
+<h2 style="text-align:center;" id="question-number">Loading...</h2>
+<p class="question" id="question-text"></p>
+<button class="button" onclick="next_question( 1.0)" style="background-color: #1b5e20;">Strongly Agree</button> <br>
+<button class="button" onclick="next_question( 0.5)" style="background-color: #4caf50;">Agree</button> <br>
+<button class="button" onclick="next_question( 0.0)" style="background-color: #bbbbbb;">Neutral/Unsure</button> <br>
+<button class="button" onclick="next_question(-0.5)" style="background-color: #f44336;">Disagree</button> <br>
+<button class="button" onclick="next_question(-1.0)" style="background-color: #b71c1c;">Strongly Disagree</button> <br>
+<button class="small_button" onclick="prev_question()" id="back_button">Back</button>
+<button class="small_button_off" id="back_button_off">Back</button><br>
+
+<!-- JavaScript for the test itself -->
+<script>
+    var max_culture, max_solutions, max_foreign, max_social, max_power, max_states; // Max possible scores
+    max_culture = max_solutions = max_foreign = max_social = max_power = max_states = 0;
+    var culture, solutions, foreign, social, power, states; // User's scores
+    culture = solutions = foreign = social = power = states = 0;
+    var qn = 0; // Question number
+    var prev_answer = null;
+    init_question();
+    for (var i = 0; i < questions.length; i++) {
+        max_culture += Math.abs(questions[i].effect.culture)
+        max_solutions += Math.abs(questions[i].effect.solutions)
+        max_foreign += Math.abs(questions[i].effect.foreign)
+        max_social += Math.abs(questions[i].effect.social)
+        max_power += Math.abs(questions[i].effect.power)
+        max_states += Math.abs(questions[i].effect.states)
+    }
+    function init_question() {
+        document.getElementById("question-text").innerHTML = questions[qn].question;
+        document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (questions.length);
+        if (prev_answer == null) {
+            document.getElementById("back_button").style.display = 'none';
+            document.getElementById("back_button_off").style.display = 'block';
+        } else {
+            document.getElementById("back_button").style.display = 'block';
+            document.getElementById("back_button_off").style.display = 'none';
+        }
+
+    }
+
+    function next_question(mult) {
+        culture += mult*questions[qn].effect.culture
+        solutions += mult*questions[qn].effect.solutions
+        foreign += mult*questions[qn].effect.foreign
+        social += mult*questions[qn].effect.social
+        power += mult*questions[qn].effect.power
+        states += mult*questions[qn].effect.states
+        qn++;
+        prev_answer = mult;
+        if (qn < questions.length) {
+            init_question();
+        } else {
+            results();
+        }
+    }
+    function prev_question() {
+        if (prev_answer == null) {
+            return;
+        }
+        qn--;
+        culture -= prev_answer * questions[qn].effect.culture;
+        solutions -= prev_answer * questions[qn].effect.solutions;
+        foreign -= prev_answer * questions[qn].effect.foreign;
+        social -= prev_answer * questions[qn].effect.social;
+        power -= prev_answer * questions[qn].effect.power;
+        states -= prev_answer * questions[qn].effect.states;
+        prev_answer = null;
+        init_question();
+
+    }
+    function calc_score(score,max) {
+        return (100*(max+score)/(2*max)).toFixed(1)
+    }
+    function results() {
+        location.href = `results.html`
+            + `?c=${calc_score(culture,max_culture)}`
+            + `&n=${calc_score(solutions,max_solutions)}`
+            + `&f=${calc_score(foreign,max_foreign)}`
+            + `&s=${calc_score(social,max_social)}`
+            + `&p=${calc_score(power,max_power)}`
+            + `&a=${calc_score(states,max_states)}`
+    }
+</script>
+</body>
