@@ -693,7 +693,7 @@ questions = [
         }
     },
     {
-        "question": "American must have open borders in order to survive.",
+        "question": "America must have open borders in order to survive.",
         "effect": {
             "culture": 0,
             "solutions": 0,
