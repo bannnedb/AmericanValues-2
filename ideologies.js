@@ -11,7 +11,7 @@ ideologies = [
         }
     },
     {
-        "name": "Anarcho-Conservatism",
+        "name": "Anarcho-Conservative",
         "stats": {
             "culture": 35,
             "solutions": 30,
@@ -178,10 +178,21 @@ ideologies = [
     {
         "name": "Trump Republican",
         "stats": {
-            "culture": 30,
+            "culture": 35,
             "solutions": 25,
             "foreign": 20,
             "social": 35,
+            "power": 65,
+            "states": 70
+        }
+    },
+    {
+        "name": "Paleoconservative",
+        "stats": {
+            "culture": 25,
+            "solutions": 30,
+            "foreign": 10,
+            "social": 25,
             "power": 35,
             "states": 70
         }
