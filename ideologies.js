@@ -11,6 +11,17 @@ ideologies = [
         }
     },
     {
+        "name": "Anarcho-Conservatism",
+        "stats": {
+            "culture": 35,
+            "solutions": 30,
+            "foreign": 20,
+            "social": 90,
+            "power": 80,
+            "states": 60
+        }
+    },
+    {
         "name": "Theocrat",
         "stats": {
             "culture": 10,
