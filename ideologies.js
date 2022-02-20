@@ -302,9 +302,20 @@ ideologies = [
             "culture": 20,
             "solutions": 60,
             "foreign": 15,
-            "social": 80,
+            "social": 90,
             "power": 80,
             "states": 20
+        }
+    },
+     {
+        "name": "Conservative Centrism",
+        "stats": {
+            "culture": 20,
+            "solutions": 50,
+            "foreign": 20,
+            "social": 50,
+            "power": 30,
+            "states": 70
         }
     },
     {
