@@ -308,7 +308,7 @@ ideologies = [
         }
     },
      {
-        "name": "Conservative Centrism",
+        "name": "Conservative Centrist",
         "stats": {
             "culture": 20,
             "solutions": 50,
