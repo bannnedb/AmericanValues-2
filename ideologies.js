@@ -302,7 +302,7 @@ ideologies = [
             "culture": 20,
             "solutions": 60,
             "foreign": 15,
-            "social": 90,
+            "social": 10,
             "power": 80,
             "states": 20
         }
