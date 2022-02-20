@@ -307,7 +307,7 @@ ideologies = [
             "states": 20
         }
     },
-     {
+    {
         "name": "Conservative Centrist",
         "stats": {
             "culture": 20,
