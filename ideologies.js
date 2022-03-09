@@ -33,17 +33,6 @@ ideologies = [
         }
     },
     {
-        "name": "Reactionary Socialism",
-        "stats": {
-            "culture": 10,
-            "solutions": 80,
-            "foreign": 30,
-            "social": 20,
-            "power": 80,
-            "states": 25
-        }
-    },
-    {
         "name": "Anarcho-Conservative",
         "stats": {
             "culture": 35,
