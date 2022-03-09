@@ -51,7 +51,7 @@ ideologies = [
             "foreign": 75,
             "social": 35,
             "power": 70,
-            "states": 70
+            "states": 30
         }
     },
     {
@@ -62,7 +62,7 @@ ideologies = [
             "foreign": 30,
             "social": 30,
             "power": 20,
-            "states": 30
+            "states": 70
         }
     },
     {
@@ -73,7 +73,7 @@ ideologies = [
             "foreign": 70,
             "social": 30,
             "power": 70,
-            "states": 70
+            "states": 30
         }
     },
     {
@@ -84,7 +84,7 @@ ideologies = [
             "foreign": 80,
             "social": 20,
             "power": 80,
-            "states": 80
+            "states": 20
         }
     },
     {
@@ -95,7 +95,7 @@ ideologies = [
             "foreign": 10,
             "social": 20,
             "power": 40,
-            "states": 60
+            "states": 30
         }
     },
     {
@@ -106,7 +106,7 @@ ideologies = [
             "foreign": 75,
             "social": 55,
             "power": 70,
-            "states": 25
+            "states": 75
         }
     },
     {
@@ -117,7 +117,7 @@ ideologies = [
             "foreign": 50,
             "social": 40,
             "power": 40,
-            "states": 35
+            "states": 65
         }
     },
     {
@@ -128,7 +128,7 @@ ideologies = [
             "foreign": 80,
             "social": 40,
             "power": 40,
-            "states": 45
+            "states": 65
         }
     },
     {
@@ -194,7 +194,7 @@ ideologies = [
             "foreign": 10,
             "social": 90,
             "power": 90,
-            "states": 20
+            "states": 10
         }
     },
     {
@@ -260,7 +260,7 @@ ideologies = [
             "foreign": 70,
             "social": 100,
             "power": 50,
-            "states": 0
+            "states": 50
         }
     },
     {
