@@ -15,6 +15,17 @@ ideologies = [
         "stats": {
             "culture": 10,
             "solutions": 50,
+            "foreign": 30,
+            "social": 20,
+            "power": 80,
+            "states": 35
+        }
+    },
+    {
+        "name": "Reactionary Nationalism",
+        "stats": {
+            "culture": 10,
+            "solutions": 50,
             "foreign": 10,
             "social": 20,
             "power": 80,
@@ -26,7 +37,7 @@ ideologies = [
         "stats": {
             "culture": 10,
             "solutions": 75,
-            "foreign": 10,
+            "foreign": 30,
             "social": 20,
             "power": 80,
             "states": 35
