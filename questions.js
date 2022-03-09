@@ -506,7 +506,7 @@ questions = [
        }
     },
     {
-        "question": "Anti-Trust action is needed in the modern American economy.",
+        "question": "Anti-trust action is needed in the modern American economy.",
         "effect": {
             "culture": 0,
             "solutions": 10,
@@ -517,7 +517,7 @@ questions = [
        }
     },
     {
-        "question": "Google and Amazon monopolies are and should be broken up.",
+        "question": "Google and Amazon are monopolies and should be broken up.",
         "effect": {
             "culture": 0,
             "solutions": 10,
