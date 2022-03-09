@@ -11,6 +11,28 @@ ideologies = [
         }
     },
     {
+        "name": "Reactionary",
+        "stats": {
+            "culture": 10,
+            "solutions": 50,
+            "foreign": 10,
+            "social": 20,
+            "power": 80,
+            "states": 35
+        }
+    },
+    {
+        "name": "Reactionary Socialism",
+        "stats": {
+            "culture": 10,
+            "solutions": 75,
+            "foreign": 10,
+            "social": 20,
+            "power": 80,
+            "states": 35
+        }
+    },
+    {
         "name": "Anarcho-Conservative",
         "stats": {
             "culture": 35,
@@ -22,14 +44,14 @@ ideologies = [
         }
     },
     {
-        "name": "Theocrat",
+        "name": "Democratic Socialist",
         "stats": {
-            "culture": 10,
-            "solutions": 60,
-            "foreign": 10,
-            "social": 20,
-            "power": 80,
-            "states": 40
+            "culture": 75,
+            "solutions": 75,
+            "foreign": 75,
+            "social": 35,
+            "power": 70,
+            "states": 70
         }
     },
     {
