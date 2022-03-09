@@ -36,11 +36,11 @@ ideologies = [
         "name": "Reactionary Socialism",
         "stats": {
             "culture": 10,
-            "solutions": 75,
+            "solutions": 80,
             "foreign": 30,
             "social": 20,
             "power": 80,
-            "states": 35
+            "states": 25
         }
     },
     {
